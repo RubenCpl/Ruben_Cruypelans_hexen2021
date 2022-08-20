@@ -39,13 +39,13 @@ namespace DAE.GameSystem.GameStates
         internal virtual void OnDrop(Hex position, Card card)
         {
 
-        }   
+        }
 
 
-        //internal virtual void StartGame()
-        //{
+        internal virtual void StartGame()
+        {
 
-        //}
+        }
 
         //internal virtual void EndGame()
         //{

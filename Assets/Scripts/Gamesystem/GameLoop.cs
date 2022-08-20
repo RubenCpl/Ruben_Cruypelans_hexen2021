@@ -33,6 +33,8 @@ namespace DAE.Gamesystem
         public PlayerHand _playerhand;
         public PlayerHand _playerhand2;
 
+
+        private int _enemyCount = 0;
         //public GameObject player1;
         //public GameObject player2;
 
@@ -48,9 +50,11 @@ namespace DAE.Gamesystem
 
         private StateMachine<GameStateBase> _gameStateMachine;
 
-        //public CanvasGroup StartScreen;
-        //public CanvasGroup EndScreen;
-        public CanvasGroup PauseScreen;
+        //public GameObject StartScreen;
+        //public GameObject EndScreen;
+        //public CanvasGroup PauseScreen;
+
+
         void Start()
         {
             _positionHelper.TileRadius = Tileradius;
@@ -66,7 +70,7 @@ namespace DAE.Gamesystem
 
 
             _gameStateMachine = new StateMachine<GameStateBase>();
-            _gameStateMachine.Register(GameState.GamePlayState, new GamePlayState(_gameStateMachine, _board, _actionManager, _playerhand, _deckview, PauseScreen, Player));
+            _gameStateMachine.Register(GameState.GamePlayState, new GamePlayState(_gameStateMachine, _board, _actionManager, _playerhand, _deckview, Player));
             //_gameStateMachine.Register(GameState.GamePlayState2, new GamePlayState2(_gameStateMachine, _board, _actionManager, _playerhand2, _deckview2, PauseScreen, player2, Player2));
 
             //_gameStateMachine.Register(GameState.GamePauseState, new PauseScreenState(_gameStateMachine, PauseScreen));
@@ -74,8 +78,8 @@ namespace DAE.Gamesystem
             //_gameStateMachine.Register(GameState.GamePlayState, new GamePlayState(_gameStateMachine, _board, _actionManager, _playerhand, _deckview, EndScreen));
 
 
-            //_gameStateMachine.Register(GameState.StartScreenState, new StartScreenState(_gameStateMachine));
-            //_gameStateMachine.Register(GameState.EndScreenState, new EndScreenState(_gameStateMachine));
+            //_gameStateMachine.Register(GameState.StartScreenState, new StartScreenState(_gameStateMachine, StartScreen));
+            //_gameStateMachine.Register(GameState.EndScreenState, new EndScreenState(_gameStateMachine, EndScreen));
             //_gameStateMachine.InitialState = GameState.StartScreenState;
 
             _gameStateMachine.InitialState = GameState.GamePlayState;
@@ -123,10 +127,11 @@ namespace DAE.Gamesystem
             _board.taken += (s, e) =>
             {
                 e.Piece.Taken();
+                //_enemyCount--;
 
-                //if (e.Piece.PieceType == pieceType.player)
+                //if (e.Piece.PieceType == pieceType.player || _enemyCount == 0)
                 //{
-                //    _gameStateMachine.CurrentState.EndGame();
+                //    _gameStateMachine.MoveToState("endScreenState");
                 //}
             };
         }
@@ -160,15 +165,17 @@ namespace DAE.Gamesystem
                 {
                     board.Place(piece, position);
                 }
+
+                if (piece.PieceType == pieceType.enemy)
+                {
+                    _enemyCount++;
+                }
             }
         }
 
         //public void StartGame()
         //{
         //    _gameStateMachine.CurrentState.StartGame();
-        //    StartScreen.alpha = 0;
-        //    StartScreen.blocksRaycasts = false;
-        //    StartScreen.interactable = false;
 
         //}
 

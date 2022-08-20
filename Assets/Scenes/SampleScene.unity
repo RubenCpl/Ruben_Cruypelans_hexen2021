@@ -449,6 +449,8 @@ MonoBehaviour:
   _playerhand2: {fileID: 1337599076}
   _currentCard: {fileID: 0}
   Player: {fileID: 140012287}
+  StartScreen: {fileID: 1274582840}
+  EndScreen: {fileID: 2125945071}
   PauseScreen: {fileID: 1135102646}
 --- !u!4 &321757262
 Transform:
@@ -1852,7 +1854,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1274582841
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2718,9 +2720,9 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125945071}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
 --- !u!1001 &3472777486675972153
 PrefabInstance:

@@ -24,7 +24,7 @@ namespace DAE.GameSystem.GameStates
         private Piece _playerPiece;
 
 
-        public GamePlayState(StateMachine<GameStateBase> stateMachine, Board<IHex, Piece> board, ActionManager<Card, Piece> moveManager, PlayerHand playerhand, Deck deck, CanvasGroup pauseScreen, Piece playerPiece) : base(stateMachine)
+        public GamePlayState(StateMachine<GameStateBase> stateMachine, Board<IHex, Piece> board, ActionManager<Card, Piece> moveManager, PlayerHand playerhand, Deck deck, Piece playerPiece) : base(stateMachine)
         {
             _playerPiece = playerPiece;
             //_player = player;
