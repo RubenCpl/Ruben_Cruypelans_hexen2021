@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DAE.HexSystem
+{
+    public interface IPiece
+    {
+       public pieceType PieceType { get; }
+    }
+
+    public enum pieceType
+    {
+        player,
+        enemy
+    }
+}

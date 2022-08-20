@@ -1,0 +1,17 @@
+{
+    "name": "HexSystem",
+    "rootNamespace": "",
+    "references": [
+        "GUID:634ab6b670a734641b43483138073bf6",
+        "GUID:8ff62e96e7ad7c3488c009c1e7cd200c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
