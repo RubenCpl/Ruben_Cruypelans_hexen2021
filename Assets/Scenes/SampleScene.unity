@@ -449,9 +449,6 @@ MonoBehaviour:
   _playerhand2: {fileID: 1337599076}
   _currentCard: {fileID: 0}
   Player: {fileID: 140012287}
-  StartScreen: {fileID: 1274582840}
-  EndScreen: {fileID: 2125945071}
-  PauseScreen: {fileID: 1135102646}
 --- !u!4 &321757262
 Transform:
   m_ObjectHideFlags: 0
@@ -1854,7 +1851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1274582841
 RectTransform:
   m_ObjectHideFlags: 0
