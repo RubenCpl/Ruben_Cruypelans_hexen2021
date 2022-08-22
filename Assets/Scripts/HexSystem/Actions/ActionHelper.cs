@@ -105,34 +105,6 @@ namespace DAE.HexSystem.Actions
 
 
         }
-        //public ActionHelper<TCard, TPiece> Test(int xOffset, int yOffset, int numTiles = int.MaxValue, params Validator[] validators)
-        //{
-
-        //    if (!_board.TryGetPositionOf(_piece, out var positionPlayer))
-        //        return this;
-
-        //    if (!_grid.TryGetCoordinateOf(positionPlayer, out var coordinate))
-        //        return this;
-
-
-        //    TargetedPlusSides(2, validators);
-        //    TargetedPlusSides1(2, validators);
-        //    TargetedPlusSides2(2, validators);
-        //    TargetedPlusSides3(2, validators);
-        //    TargetedPlusSides4(2, validators);
-        //    TargetedPlusSides5(2, validators);
-
-        //    TargetedPlusSidesDouble(1, validators);
-        //      TargetedPlusSidesDouble1(1, validators);
-        //      TargetedPlusSidesDouble2(1, validators);
-        //      TargetedPlusSidesDouble3(1, validators);
-        //      TargetedPlusSidesDouble4(1, validators);
-        //      TargetedPlusSidesDouble5(1, validators);
-
-
-
-        //    return this;
-        //}
 
         public ActionHelper<TCard, TPiece> TargetedStraightAction(int xOffset, int yOffset, int numTiles = int.MaxValue, params Validator[] validators)
         {
@@ -157,20 +129,9 @@ namespace DAE.HexSystem.Actions
                 if (!isOk)
                     return this;
 
-                //var hasPiece = _board.TryGetPieceAt(nextPosition, out var nextPiece);
-                //if (!hasPiece)
-                //{
-                TempvalidPositions.Add(nextPosition);
-                //}
-                //else
-                //{
-                //    ////detect other pieces shit
-                //    //if (nextPiece.PlayerID == _piece.PlayerID)
-                //    //    return this;
 
-                //    TempvalidPositions.Add(nextPosition);
-                //    return this;
-                //}
+                TempvalidPositions.Add(nextPosition);
+
 
                 nextXCoordinate = coordinate.x + ((step + 1) * xOffset);
                 nextYCoordinate = coordinate.y + ((step + 1) * yOffset);

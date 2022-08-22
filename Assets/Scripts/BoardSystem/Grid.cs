@@ -57,6 +57,8 @@ namespace DAE.BoardSystem
 
 
 
+
+
         public event EventHandler<DestoyedEventArgs<THex>> destroyed;
 
 

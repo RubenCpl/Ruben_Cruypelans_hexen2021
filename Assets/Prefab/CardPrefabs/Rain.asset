@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: 
   _description: 
-  _cardType: 0
+  _cardType: 4
   _cardTexture: {fileID: 0}
