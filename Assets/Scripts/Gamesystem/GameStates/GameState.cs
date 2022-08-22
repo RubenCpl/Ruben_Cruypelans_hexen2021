@@ -10,12 +10,6 @@ namespace DAE.GameSystem.GameStates
     {
         public const string GamePlayState = "gamePlayState";
 
-        //public const string StartScreenState = "startScreenState";
-        //public const string EndScreenState = "endScreenState";
-
-
-        //public const string GamePauseState = "gamePauseState";
-
-        //public const string GamePlayState2 = "gamePlayState2";
+        public const string GamePlayState2 = "gamePlayState2";
     }
 }

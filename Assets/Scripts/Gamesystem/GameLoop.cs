@@ -28,15 +28,13 @@ namespace DAE.Gamesystem
         public GenerationShapes MapShape = GenerationShapes.Hexagon;
 
         public Deck _deckview;
-        //public Deck _deckview2;
+        public Deck _deckview2;
 
         public PlayerHand _playerhand;
         public PlayerHand _playerhand2;
 
 
         private int _enemyCount = 0;
-        //public GameObject player1;
-        //public GameObject player2;
 
         private ActionManager<Card, Piece> _actionManager;
 
@@ -46,13 +44,10 @@ namespace DAE.Gamesystem
         private Board<IHex, Piece> _board;
 
         public Piece Player;
-        //public Piece Player2;
+        public Piece Player2;
 
         private StateMachine<GameStateBase> _gameStateMachine;
 
-        //public GameObject StartScreen;
-        //public GameObject EndScreen;
-        //public CanvasGroup PauseScreen;
 
 
         void Start()
@@ -71,16 +66,7 @@ namespace DAE.Gamesystem
 
             _gameStateMachine = new StateMachine<GameStateBase>();
             _gameStateMachine.Register(GameState.GamePlayState, new GamePlayState(_gameStateMachine, _board, _actionManager, _playerhand, _deckview, Player));
-            //_gameStateMachine.Register(GameState.GamePlayState2, new GamePlayState2(_gameStateMachine, _board, _actionManager, _playerhand2, _deckview2, PauseScreen, player2, Player2));
-
-            //_gameStateMachine.Register(GameState.GamePauseState, new PauseScreenState(_gameStateMachine, PauseScreen));
-
-            //_gameStateMachine.Register(GameState.GamePlayState, new GamePlayState(_gameStateMachine, _board, _actionManager, _playerhand, _deckview, EndScreen));
-
-
-            //_gameStateMachine.Register(GameState.StartScreenState, new StartScreenState(_gameStateMachine, StartScreen));
-            //_gameStateMachine.Register(GameState.EndScreenState, new EndScreenState(_gameStateMachine, EndScreen));
-            //_gameStateMachine.InitialState = GameState.StartScreenState;
+            _gameStateMachine.Register(GameState.GamePlayState2, new GamePlayState2(_gameStateMachine, _board, _actionManager, _playerhand2, _deckview2, Player2));
 
             _gameStateMachine.InitialState = GameState.GamePlayState;
 
@@ -129,10 +115,10 @@ namespace DAE.Gamesystem
                 e.Piece.Taken();
                 //_enemyCount--;
 
-                //if (e.Piece.PieceType == pieceType.player || _enemyCount == 0)
-                //{
-                //    _gameStateMachine.MoveToState("endScreenState");
-                //}
+                if (e.Piece.PieceType == pieceType.player)
+                {
+                    Debug.Log("player taken");
+                }
             };
         }
 
@@ -173,25 +159,6 @@ namespace DAE.Gamesystem
             }
         }
 
-        //public void StartGame()
-        //{
-        //    _gameStateMachine.CurrentState.StartGame();
-
-        //}
-
-
-        //public void UnPauseGame()
-        //{
-        //    _gameStateMachine.CurrentState.UnPauseGame();
-        //    //PauseScreen.alpha = 0;
-        //    //PauseScreen.blocksRaycasts = false;
-        //    //PauseScreen.interactable = false;
-        //}
-
-        //public void PauseGame()
-        //{
-        //    _gameStateMachine.CurrentState.PauseGame();
-        //}
 
     }
 

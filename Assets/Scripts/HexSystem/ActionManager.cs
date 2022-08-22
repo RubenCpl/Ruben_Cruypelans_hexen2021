@@ -43,6 +43,7 @@ namespace DAE.HexSystem
             //_actions.Add(CardType.UltraCleave, new UltraCleave<TCard, TPiece>());
 
             //_actions.Add(CardType.Bomb, new BombAction<TCard, TPiece>());
+            _actions.Add(CardType.Rain, new RainAction<TCard, TPiece>());
 
         }
 

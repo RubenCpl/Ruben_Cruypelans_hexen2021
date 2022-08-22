@@ -25,7 +25,6 @@ namespace DAE.HexSystem
         Thunderclap,
         Push,
         Beam,
-        //UltraCleave
-        //Bomb
+        Rain
     }
 }

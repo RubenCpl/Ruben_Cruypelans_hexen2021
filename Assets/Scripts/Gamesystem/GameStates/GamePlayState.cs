@@ -17,9 +17,6 @@ namespace DAE.GameSystem.GameStates
         private ActionManager<Card, Piece> _actionManager;
         private Board<IHex, Piece> _board;
         private Deck _deck;
-        //private CanvasGroup _endScreen;
-        //private GameObject _player;
-        //private CanvasGroup _pauseScreen;
 
         private Piece _playerPiece;
 
@@ -27,33 +24,19 @@ namespace DAE.GameSystem.GameStates
         public GamePlayState(StateMachine<GameStateBase> stateMachine, Board<IHex, Piece> board, ActionManager<Card, Piece> moveManager, PlayerHand playerhand, Deck deck, Piece playerPiece) : base(stateMachine)
         {
             _playerPiece = playerPiece;
-            //_player = player;
+
             _deck = deck;
             _actionManager = moveManager;
             _board = board;
-            //_endScreen = endScreen;
-            //_pauseScreen = pauseScreen;
             _deck.EqualizeDecks();
             _deck.ShuffleCurrentDeck();
-
-            //_deck.DrawCard();
-            //_deck.DrawCard();
-            //_deck.DrawCard();
-            //_deck.DrawCard();
-            //_deck.DrawCard();
+            _deck.InstantiateHandGOs();
 
         }
 
-        //internal override void EndGame()
-        //{
-        //    StateMachine.MoveToState(GameState.EndScreenState);
-        //    _endScreen.alpha = 1;
-
-        //}
 
         public override void OnEnter()
         {
-            //_player.SetActive(true);
             _deck.DrawCard();
             _deck.DrawCard();
             _deck.DrawCard();
@@ -66,17 +49,10 @@ namespace DAE.GameSystem.GameStates
 
         public override void OnExit()
         {
-            //_player.SetActive(false);
             _deck.CurrentDeckList.InsertRange(0, _deck.PlayerHandList);
             _deck.PlayerHandList.Clear();
             _deck.ClearHandGO();
         }
-
-        //public override void PauseGame()
-        //{
-        //    StateMachine.MoveToState(GameState.GamePauseState);
-
-        //}
 
         internal override void HighLightNew(Hex position, Card card)
         {
@@ -134,7 +110,7 @@ namespace DAE.GameSystem.GameStates
                 hex.Deactivate();
             }
 
-            //StateMachine.MoveToState(GameState.GamePlayState2);
+            StateMachine.MoveToState(GameState.GamePlayState2);
 
         }
 
