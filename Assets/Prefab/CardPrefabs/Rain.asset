@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e290b5e078ab0584bb7f267126176d0d, type: 3}
   m_Name: Rain
   m_EditorClassIdentifier: 
-  _name: 
-  _description: 
+  _name: Rain
+  _description: Destroy 3 tiles
   _cardType: 4
   _cardTexture: {fileID: 0}

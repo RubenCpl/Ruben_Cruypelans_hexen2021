@@ -19,6 +19,7 @@ namespace DAE.HexSystem.Actions
         public override void ExecuteAction(Board<IHex, TPiece> board, Grid<IHex> grid, IHex position, TPiece piece, CardType card)
         {
 
+
             ActionHelper<TCard, TPiece> actionHelper = new ActionHelper<TCard, TPiece>(board, grid, position, piece, card);
             actionHelper.Direction0(10)
                         .Direction1(10)
@@ -30,9 +31,10 @@ namespace DAE.HexSystem.Actions
             actionHelper.Collect().Shuffle();
 
             actionHelper.Collect().RemoveRange(3, actionHelper.Collect().Count - 3);
-            //board.Move(piece, position);
+            board.Move(piece, position);
 
             var destroylist = actionHelper.Collect();
+
 
             grid.Destroy(destroylist);
 

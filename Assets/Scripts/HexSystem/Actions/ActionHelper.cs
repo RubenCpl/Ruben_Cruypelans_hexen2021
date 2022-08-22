@@ -75,34 +75,6 @@ namespace DAE.HexSystem.Actions
             return neighbours;
         }
 
-        //public static List<IHex> Random(IHex centerHex, Board<IHex, TPiece> board, Grid<IHex> grid)
-        //{
-        //    var random = new List<IHex>();
-
-        //    if (centerHex != null)
-        //    {
-        //        grid.TryGetCoordinateOf(centerHex, out var coordinate);
-
-        //        var CenterX = coordinate.x;
-        //        var CenterY = coordinate.y;
-
-        //        foreach (var direction in ActionHelper<TCard, TPiece>._directions)
-        //        {
-        //            var randomNum = new Random.State();
-        //            var NewposX = CenterX + randomNum.);
-        //            var NewposY = CenterY + _randomRange.RandomRange(-10, 10);
-
-        //            if (grid.TryGetPositionAt((int)NewposX, (int)NewposY, out var newposition))
-        //            {
-        //                board.TryGetPieceAt(newposition, out var piece);
-
-        //                random.Add(newposition);
-
-        //            }
-        //        }
-        //    }
-        //    return random;
-        //}
 
         public ActionHelper<TCard, TPiece> StraightAction(int xOffset, int yOffset, int numTiles = int.MaxValue, params Validator[] validators)
         {

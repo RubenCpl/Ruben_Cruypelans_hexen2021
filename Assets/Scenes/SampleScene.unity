@@ -2112,7 +2112,7 @@ PrefabInstance:
       objectReference: {fileID: 753673267}
     - target: {fileID: 1507591455500561752, guid: 71208e93246985f468bc1a6a766100b4, type: 3}
       propertyPath: _startingDeckList.Array.size
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1507591455500561752, guid: 71208e93246985f468bc1a6a766100b4, type: 3}
       propertyPath: _startingDeckList.Array.data[0]
@@ -2161,15 +2161,15 @@ PrefabInstance:
     - target: {fileID: 1507591455500561752, guid: 71208e93246985f468bc1a6a766100b4, type: 3}
       propertyPath: _startingDeckList.Array.data[12]
       value: 
-      objectReference: {fileID: 11400000, guid: b450cf8ce0fb5474eb943855ceb66baa, type: 2}
+      objectReference: {fileID: 11400000, guid: 9cfd1b2b2102c224bacc0c1dc0d39b82, type: 2}
     - target: {fileID: 1507591455500561752, guid: 71208e93246985f468bc1a6a766100b4, type: 3}
       propertyPath: _startingDeckList.Array.data[13]
       value: 
-      objectReference: {fileID: 11400000, guid: b450cf8ce0fb5474eb943855ceb66baa, type: 2}
+      objectReference: {fileID: 11400000, guid: 9cfd1b2b2102c224bacc0c1dc0d39b82, type: 2}
     - target: {fileID: 1507591455500561752, guid: 71208e93246985f468bc1a6a766100b4, type: 3}
       propertyPath: _startingDeckList.Array.data[14]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 9cfd1b2b2102c224bacc0c1dc0d39b82, type: 2}
     - target: {fileID: 2888095517391917261, guid: 71208e93246985f468bc1a6a766100b4, type: 3}
       propertyPath: m_Name
       value: Deck2
@@ -2311,8 +2311,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 753673267}
     - target: {fileID: 1507591455500561752, guid: 71208e93246985f468bc1a6a766100b4, type: 3}
+      propertyPath: _currentDeckList.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507591455500561752, guid: 71208e93246985f468bc1a6a766100b4, type: 3}
       propertyPath: _startingDeckList.Array.size
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1507591455500561752, guid: 71208e93246985f468bc1a6a766100b4, type: 3}
       propertyPath: _startingDeckList.Array.data[0]
@@ -2361,15 +2365,15 @@ PrefabInstance:
     - target: {fileID: 1507591455500561752, guid: 71208e93246985f468bc1a6a766100b4, type: 3}
       propertyPath: _startingDeckList.Array.data[12]
       value: 
-      objectReference: {fileID: 11400000, guid: b450cf8ce0fb5474eb943855ceb66baa, type: 2}
+      objectReference: {fileID: 11400000, guid: 9cfd1b2b2102c224bacc0c1dc0d39b82, type: 2}
     - target: {fileID: 1507591455500561752, guid: 71208e93246985f468bc1a6a766100b4, type: 3}
       propertyPath: _startingDeckList.Array.data[13]
       value: 
-      objectReference: {fileID: 11400000, guid: b450cf8ce0fb5474eb943855ceb66baa, type: 2}
+      objectReference: {fileID: 11400000, guid: 9cfd1b2b2102c224bacc0c1dc0d39b82, type: 2}
     - target: {fileID: 1507591455500561752, guid: 71208e93246985f468bc1a6a766100b4, type: 3}
       propertyPath: _startingDeckList.Array.data[14]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 9cfd1b2b2102c224bacc0c1dc0d39b82, type: 2}
     - target: {fileID: 2888095517391917261, guid: 71208e93246985f468bc1a6a766100b4, type: 3}
       propertyPath: m_Name
       value: Deck
