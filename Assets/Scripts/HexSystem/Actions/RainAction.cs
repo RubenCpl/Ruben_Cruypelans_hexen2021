@@ -30,7 +30,13 @@ namespace DAE.HexSystem.Actions
 
             actionHelper.Collect().Shuffle();
 
-            actionHelper.Collect().RemoveRange(3, Math.Abs(actionHelper.Collect().Count - 3));
+            if (actionHelper.Collect().Count >= 3)
+            {
+                actionHelper.Collect().RemoveRange(0, Math.Abs(actionHelper.Collect().Count - 3));
+            } else
+            {
+                actionHelper.Collect().RemoveRange(0, Math.Abs(actionHelper.Collect().Count));
+            }
 
             var destroylist = actionHelper.Collect();
 
