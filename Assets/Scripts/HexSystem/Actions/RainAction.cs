@@ -30,8 +30,7 @@ namespace DAE.HexSystem.Actions
 
             actionHelper.Collect().Shuffle();
 
-            actionHelper.Collect().RemoveRange(3, actionHelper.Collect().Count - 3);
-            board.Move(piece, position);
+            actionHelper.Collect().RemoveRange(3, Math.Abs(actionHelper.Collect().Count - 3));
 
             var destroylist = actionHelper.Collect();
 

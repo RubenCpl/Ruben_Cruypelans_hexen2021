@@ -264,14 +264,7 @@ namespace DAE.HexSystem.Actions
             else
                 return this;
 
-            //ActionHelper<TCard, TPiece> actionHelperPartual = new ActionHelper<TCard, TPiece>(_board, _grid, _position, _piece, _card).TargetedPlusSides(1)
-            //    .TargetedPlusSides1(1)
-            //    .TargetedPlusSides2(1)
-            //    .TargetedPlusSides3(1)
-            //    .TargetedPlusSides4(1)
-            //    .TargetedPlusSides5(1);
 
-            //_validPositions.AddRange(actionHelperPartual.Collect());
 
             var othertile1 = GetNextDirectionDown(direction);
             var nextXCoordinate1 = tempXCoordinate + (int)othertile1.x;

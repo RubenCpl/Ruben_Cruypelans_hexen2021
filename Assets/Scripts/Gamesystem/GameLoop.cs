@@ -28,10 +28,13 @@ namespace DAE.Gamesystem
         public GenerationShapes MapShape = GenerationShapes.Hexagon;
 
         public Deck _deckview;
-        public Deck _deckview2;
 
-        public PlayerHand _playerhand;
-        public PlayerHand _playerhand2;
+        public PlayerHand Playerhand1;
+        public PlayerHand Playerhand2;
+
+
+        public GameObject PlayerHandObject1;
+        public GameObject PlayerHandObject2;
 
 
         private int _enemyCount = 0;
@@ -43,7 +46,7 @@ namespace DAE.Gamesystem
         private Grid<IHex> _grid;
         private Board<IHex, Piece> _board;
 
-        public Piece Player;
+        public Piece Player1;
         public Piece Player2;
 
         private StateMachine<GameStateBase> _gameStateMachine;
@@ -65,8 +68,8 @@ namespace DAE.Gamesystem
 
 
             _gameStateMachine = new StateMachine<GameStateBase>();
-            _gameStateMachine.Register(GameState.GamePlayState, new GamePlayState(_gameStateMachine, _board, _actionManager, _playerhand, _deckview, Player));
-            _gameStateMachine.Register(GameState.GamePlayState2, new GamePlayState2(_gameStateMachine, _board, _actionManager, _playerhand2, _deckview2, Player2));
+            _gameStateMachine.Register(GameState.GamePlayState, new GamePlayState(_gameStateMachine, _board, _actionManager, Playerhand1, _deckview, Player1, PlayerHandObject1));
+            _gameStateMachine.Register(GameState.GamePlayState2, new GamePlayState2(_gameStateMachine, _board, _actionManager, Playerhand2, _deckview, Player2, PlayerHandObject2));
 
             _gameStateMachine.InitialState = GameState.GamePlayState;
 

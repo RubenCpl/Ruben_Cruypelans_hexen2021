@@ -22,7 +22,10 @@ namespace DAE.Gamesystem
         private List<CardData> _temporaryCardList;
 
         [SerializeField]
-        private List<CardData> _playerhandList;
+        private List<CardData> _playerhandList1;
+
+        [SerializeField]
+        private List<CardData> _playerhandList2;
 
         [SerializeField]
         private List<CardData> _discardList;
@@ -30,7 +33,9 @@ namespace DAE.Gamesystem
         [SerializeField]
         private GameObject CardBase;
 
-        public GameObject HandView;
+        public GameObject HandView1;
+        public GameObject HandView2;
+
 
         private List<CardData> templist = new List<CardData>();
         private List<CardData> tempDrawnlist = new List<CardData>();
@@ -43,7 +48,7 @@ namespace DAE.Gamesystem
 
         public List<CardData> TemporaryCardsList => _temporaryCardList;
 
-        public List<CardData> PlayerHandList => _playerhandList;
+        public List<CardData> PlayerHandList => _playerhandList1;
 
         public List<CardData> DiscardList => _discardList;
 
@@ -51,7 +56,16 @@ namespace DAE.Gamesystem
 
         public void DrawCard()
         {
-            _playerhandList.Add(CurrentDeckList[0]);
+            List<CardData> playerhandList = new List<CardData>();
+            if (HandView1.activeInHierarchy)
+            {
+                playerhandList = _playerhandList1;
+            }
+            else if (HandView2.activeInHierarchy)
+            {
+                playerhandList = _playerhandList2;
+            }
+            playerhandList.Add(CurrentDeckList[0]);
             if (CurrentDeckList.Count > 0)
             {
                 CurrentDeckList.RemoveAt(0);
@@ -76,11 +90,21 @@ namespace DAE.Gamesystem
 
         public void ExecuteCard(Card cardo)
         {
-            _playerhandList.Remove(cardo.CardData);
+            List<CardData> playerhandList = new List<CardData>();
+            if (HandView1.activeInHierarchy)
+            {
+                playerhandList = _playerhandList1;
+            }
+            else if (HandView2.activeInHierarchy)
+            {
+                playerhandList = _playerhandList2;
+            }
+
+            playerhandList.Remove(cardo.CardData);
             _discardList.Add(cardo.CardData);
             if (CurrentDeckList.Count > 0)
             {
-                _playerhandList.Add(CurrentDeckList[0]);
+                playerhandList.Add(CurrentDeckList[0]);
                 CurrentDeckList.RemoveAt(0);
 
 
@@ -94,20 +118,44 @@ namespace DAE.Gamesystem
 
         public void ClearHandGO()
         {
-            int childs = HandView.transform.childCount;
+            int childs = HandView1.transform.childCount;
             for (int i = childs -1 ; i >= 0; i--)
             {
-                Destroy(HandView.transform.GetChild(i).gameObject);
+                if (HandView1.activeInHierarchy)
+                {
+                    Destroy(HandView1.transform.GetChild(i).gameObject);
+                }  else if (HandView2.activeInHierarchy)
+                {
+                    Destroy(HandView2.transform.GetChild(i).gameObject);
+
+                }
+
             }
                     
         }
 
         public void InstantiateHandGOs()
         {
-            foreach (var handCard in _playerhandList)
+           List<CardData> playerhandList = new List<CardData>();
+            if (HandView1.activeInHierarchy)
             {
-                var cardobject = Instantiate(CardBase, HandView.transform);                
-                cardobject.GetComponent<Card>().InitializeCard(handCard);
+                playerhandList = _playerhandList1;
+            } else if (HandView2.activeInHierarchy)
+            {
+                playerhandList = _playerhandList2;
+            }
+
+            foreach (var handCard in playerhandList)
+            {
+                if (HandView1.activeInHierarchy)
+                {
+                    var cardobject = Instantiate(CardBase, HandView1.transform);
+                    cardobject.GetComponent<Card>().InitializeCard(handCard);
+                } else if (HandView2.activeInHierarchy)
+                {
+                    var cardobject = Instantiate(CardBase, HandView2.transform);
+                    cardobject.GetComponent<Card>().InitializeCard(handCard); 
+                }
             }
 
         }
@@ -119,22 +167,4 @@ namespace DAE.Gamesystem
 
 }
 
-//public static class MyExtensions
-//{
-//    private static readonly System.Random rng = new System.Random();
-
-//    //Fisher - Yates shuffle
-//    public static void Shuffle<T>(this IList<T> list)
-//    {
-//        int n = list.Count;
-//        while (n > 1)
-//        {
-//            n--;
-//            int k = rng.Next(n + 1);
-//            T value = list[k];
-//            list[k] = list[n];
-//            list[n] = value;
-//        }
-//    }
-//}
 

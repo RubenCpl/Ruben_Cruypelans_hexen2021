@@ -41,8 +41,6 @@ namespace DAE.HexSystem.Actions
 
         public override List<IHex> IsolatedPositions(Board<IHex, TPiece> board, Grid<IHex> grid, IHex position, TPiece piece, CardType card)
         {
-            //ActionHelper<TCard, TPiece> actionHelper = new ActionHelper<TCard, TPiece>(board, grid, position, piece, card);
-            //actionHelper.SelectSIngle(ActionHelper<TCard, TPiece>.IsEmptyTile);
 
                      
             var Valid = ActionHelper<TCard, TPiece>.Neighbours(position, board, grid);

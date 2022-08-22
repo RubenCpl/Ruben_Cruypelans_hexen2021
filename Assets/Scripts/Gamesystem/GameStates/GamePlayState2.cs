@@ -18,41 +18,48 @@ namespace DAE.GameSystem.GameStates
         private Board<IHex, Piece> _board;
         private Deck _deck;
 
+        private List<CardData> _handListSave;
 
         private Piece _playerPiece;
 
-        public GamePlayState2(StateMachine<GameStateBase> stateMachine, Board<IHex, Piece> board, ActionManager<Card, Piece> moveManager, PlayerHand playerhand, Deck deck, Piece playerPiece) : base(stateMachine)
+        private GameObject _playerHandObject;
+
+        private bool _firstTimeEnter;
+        public GamePlayState2(StateMachine<GameStateBase> stateMachine, Board<IHex, Piece> board, ActionManager<Card, Piece> moveManager, PlayerHand playerhand, Deck deck, Piece playerPiece, GameObject playerHandObject) : base(stateMachine)
         {
             _playerPiece = playerPiece;
+
+            _playerHandObject = playerHandObject;
 
             _deck = deck;
             _actionManager = moveManager;
             _board = board;
-            _deck.EqualizeDecks();
-            _deck.ShuffleCurrentDeck();
 
-            _deck.InstantiateHandGOs();
 
 
         }
 
         public override void OnEnter()
         {
-            _deck.DrawCard();
-            _deck.DrawCard();
-            _deck.DrawCard();
-            _deck.DrawCard();
-            _deck.DrawCard();
+            _playerHandObject.SetActive(true);
 
-            _deck.InstantiateHandGOs();
-
+            if (_firstTimeEnter == false)
+            {
+                _deck.DrawCard();
+                _deck.DrawCard();
+                _deck.DrawCard();
+                _deck.DrawCard();
+                _deck.DrawCard();
+                _deck.InstantiateHandGOs();
+                _firstTimeEnter = true;
+            }
         }
 
         public override void OnExit()
         {
-            _deck.CurrentDeckList.InsertRange(0, _deck.PlayerHandList);
-            _deck.PlayerHandList.Clear();
-            _deck.ClearHandGO();
+            _playerHandObject.SetActive(false);
+            //_handListSave = _deck.PlayerHandList;
+            //_deck.PlayerHandList.Clear();
         }
 
 
